@@ -106,12 +106,3 @@ test = bwlabeln(stack.results.cellMask);
 figure
 imagesc(test(:,:,30))
 colormap('colorcube')
-
-
-%% Intensity calculation
-
-
-
-
-
-

@@ -132,10 +132,10 @@ classdef OSLocMovie < Core.OSParticleMovie
             planes  = partData(~isnan(partData.plane),:).plane;
 
             bf = partData.plane(3);
-            planePos = obj.raw.movInfo(1).planePos;
+            planePos = obj.raw.planePos;
             
             %Get ROI XZ, YZ scaled to same pixel size
-            [Mag] = Core.HIVLocMovie.getZPhasorMag(partData,ROIRad,frameData);
+            [Mag] = Core.OSLocMovie.getZPhasorMag(partData,ROIRad,frameData);
             
             if abs(bf-nPlanes)<3
                 endIdx = nPlanes;
@@ -170,9 +170,9 @@ classdef OSLocMovie < Core.OSParticleMovie
                 intZ = NaN;
             else
               
-                row = partData.row(3)*pxSizeXY;
-                col = partData.col(3)*pxSizeXY;
-                zM = z/mean(diff(obj.raw.movInfo(1).planePos));                      
+                row = partData.row(3)*obj.info.pxSizeXY;
+                col = partData.col(3)*obj.info.pxSizeXY;
+                zM = z/mean(diff(obj.raw.planePos));                      
                 rowM = partData.row(3);
                 colM = partData.col(3);
                 intZ = fit(3);

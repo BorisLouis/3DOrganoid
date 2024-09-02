@@ -54,6 +54,9 @@ classdef OrganoidSegmentation < handle
             nFrames = size(channel.nucleus,3);
             obj.raw.nFrames = nFrames;
             obj.raw.nPlanes = nFrames;
+            obj.raw.planePos = [1:nFrames]*obj.info.pxSizeZ;
+            
+            
             %store the data back into the object
             obj.channels = channel;
             
